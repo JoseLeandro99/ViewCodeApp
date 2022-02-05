@@ -34,12 +34,8 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("Começou edit")
-    }
-    
     func textFieldDidEndEditing(_ textField: UITextField) {
-        print("Terminou edit")
+        self.loginScreen?.validaTextFields()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -49,10 +45,11 @@ extension ViewController: UITextFieldDelegate {
 
 extension ViewController: LoginScreenProtocol {
     func actionRegisterButton() {
-        print("Redirecionar para registro")
+        let registerController = RegisterViewController()
+        self.navigationController?.pushViewController(registerController, animated: true)
     }
     
-    func actionLoginButton(login: String, password: String) {
-        print("Deu certo login conteúdo, login:\(login) - senha: \(password)")
+    func actionLoginButton() {
+        print("Deu certo login conteúdo")
     }
 }

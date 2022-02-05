@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginScreenProtocol : AnyObject {
-    func actionLoginButton(login: String, password: String)
+    func actionLoginButton()
     func actionRegisterButton()
 }
 
@@ -89,7 +89,16 @@ class LoginScreen : UIView {
         super.init(frame: frame)
         configBackground()
         configSuperView()
-        setUpConstraints()
+        
+        // setUpConstraints()
+        configLoginLabelConstraint()
+        configLogoAppImageConstraint()
+        configEmailTextFieldConstraint()
+        configPasswordTextFieldConstraint()
+        configLoginButtonConstraint()
+        configRegisterButtonConstraint()
+        
+        configButtonEnable(enable: false)
     }
     
     required init?(coder: NSCoder) {
@@ -97,15 +106,32 @@ class LoginScreen : UIView {
     }
     
     @objc private func tappedLoginButton() {
-        if let login = self.emailTextField.text {
-            if let password = self.passwordTextField.text {
-                self.delegate?.actionLoginButton(login: login, password: password)
-            }
-        }
+        self.delegate?.actionLoginButton()
     }
     
     @objc private func tappedRegisterButton() {
         self.delegate?.actionRegisterButton()
+    }
+    
+    func validaTextFields() {
+        let email: String = self.emailTextField.text ?? ""
+        let password: String = self.passwordTextField.text ?? ""
+        
+        if !email.isEmpty && !password.isEmpty {
+            configButtonEnable(enable: true)
+        } else {
+            configButtonEnable(enable: false)
+        }
+    }
+    
+    private func configButtonEnable(enable: Bool) {
+        self.loginButton.isEnabled = enable
+        
+        if enable {
+            self.loginButton.backgroundColor = .blue
+        } else {
+            self.loginButton.backgroundColor = .darkGray
+        }
     }
     
     private func configBackground() {
@@ -126,6 +152,7 @@ class LoginScreen : UIView {
         self.addSubview(registerButton)
     }
     
+    // Maneira Nativa de setar constraints
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
             self.loginLabel.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -156,5 +183,57 @@ class LoginScreen : UIView {
             self.registerButton.trailingAnchor.constraint(equalTo: self.emailTextField.trailingAnchor),
             self.registerButton.heightAnchor.constraint(equalTo: self.emailTextField.heightAnchor)
         ])
+    }
+    
+    private func configLoginLabelConstraint() {
+        self.loginLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(self.safeAreaLayoutGuide.snp.top).offset(20)
+            make.centerX.equalToSuperview()
+        }
+    }
+    
+    private func configLogoAppImageConstraint() {
+        self.appLogoImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(self.loginLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(60)
+            make.trailing.equalToSuperview().inset(60)
+            make.height.equalTo(200)
+        }
+    }
+    
+    private func configEmailTextFieldConstraint() {
+        self.emailTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(self.appLogoImageView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().inset(20)
+            make.height.equalTo(45)
+        }
+    }
+    
+    private func configPasswordTextFieldConstraint() {
+        self.passwordTextField.snp.makeConstraints { (make) in
+            make.top.equalTo(self.emailTextField.snp.bottom).offset(20)
+            make.leading.equalTo(self.emailTextField.snp.leading)
+            make.trailing.equalTo(self.emailTextField.snp.trailing)
+            make.height.equalTo(self.emailTextField.snp.height)
+        }
+    }
+    
+    private func configLoginButtonConstraint() {
+        self.loginButton.snp.makeConstraints { (make) in
+            make.top.equalTo(self.passwordTextField.snp.bottom).offset(20)
+            make.leading.equalTo(self.emailTextField.snp.leading)
+            make.trailing.equalTo(self.emailTextField.snp.trailing)
+            make.height.equalTo(self.emailTextField.snp.height)
+        }
+    }
+    
+    private func configRegisterButtonConstraint() {
+        self.registerButton.snp.makeConstraints { (make) in
+            make.top.equalTo(self.loginButton.snp.bottom).offset(20)
+            make.leading.equalTo(self.emailTextField.snp.leading)
+            make.trailing.equalTo(self.emailTextField.snp.trailing)
+            make.height.equalTo(self.emailTextField.snp.height)
+        }
     }
 }
