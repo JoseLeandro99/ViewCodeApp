@@ -143,6 +143,14 @@ class LoginScreen : UIView {
         self.passwordTextField.delegate = delegate
     }
     
+    func getEmail() -> String {
+        return self.emailTextField.text ?? ""
+    }
+    
+    func getPassword() -> String {
+        return self.passwordTextField.text ?? ""
+    }
+    
     private func configSuperView() {
         self.addSubview(loginLabel)
         self.addSubview(appLogoImageView)

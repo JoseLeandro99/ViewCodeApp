@@ -127,6 +127,14 @@ class RegisterScreen : UIView {
         }
     }
     
+    func getEmail() -> String {
+        return self.emailTextField.text ?? ""
+    }
+    
+    func getPassword() -> String {
+        return self.passwordTextField.text ?? ""
+    }
+    
     private func configBackground() {
         self.backgroundColor = .lightGray
     }

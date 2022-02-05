@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7674F1C27AEEFB600B19D27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D7674F1B27AEEFB600B19D27 /* GoogleService-Info.plist */; };
 		D786476427A8896A00531E75 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786476327A8896A00531E75 /* AppDelegate.swift */; };
 		D786476627A8896A00531E75 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786476527A8896A00531E75 /* SceneDelegate.swift */; };
 		D786476827A8896A00531E75 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D786476727A8896A00531E75 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 		06B8FD09BC91C4F1A88A325E /* Pods-LoginViewCode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginViewCode.release.xcconfig"; path = "Target Support Files/Pods-LoginViewCode/Pods-LoginViewCode.release.xcconfig"; sourceTree = "<group>"; };
 		4698A4FCA810AD779D21DB4A /* Pods_LoginViewCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoginViewCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B59B166B2D22067B4153AB61 /* Pods-LoginViewCode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoginViewCode.debug.xcconfig"; path = "Target Support Files/Pods-LoginViewCode/Pods-LoginViewCode.debug.xcconfig"; sourceTree = "<group>"; };
+		D7674F1B27AEEFB600B19D27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D786476027A8896A00531E75 /* LoginViewCode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginViewCode.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D786476327A8896A00531E75 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D786476527A8896A00531E75 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				D786476C27A8896B00531E75 /* Assets.xcassets */,
 				D786476E27A8896B00531E75 /* LaunchScreen.storyboard */,
 				D786477127A8896B00531E75 /* Info.plist */,
+				D7674F1B27AEEFB600B19D27 /* GoogleService-Info.plist */,
 			);
 			path = LoginViewCode;
 			sourceTree = "<group>";
@@ -142,7 +145,6 @@
 				B59B166B2D22067B4153AB61 /* Pods-LoginViewCode.debug.xcconfig */,
 				06B8FD09BC91C4F1A88A325E /* Pods-LoginViewCode.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -207,6 +209,7 @@
 			files = (
 				D786477027A8896B00531E75 /* LaunchScreen.storyboard in Resources */,
 				D786476D27A8896B00531E75 /* Assets.xcassets in Resources */,
+				D7674F1C27AEEFB600B19D27 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
