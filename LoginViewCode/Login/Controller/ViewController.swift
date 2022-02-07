@@ -53,6 +53,9 @@ extension ViewController: LoginScreenProtocol {
     }
     
     func actionLoginButton() {
+        let home = HomeViewController()
+        self.navigationController?.pushViewController(home, animated: true)
+        
         guard let login = self.loginScreen else { return }
         
         self.auth?.signIn(
